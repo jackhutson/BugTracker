@@ -1,19 +1,21 @@
 ﻿<div>
     <h1>Bug Tracker</h1>
-    <input ng-model="Title" placeholder="Title" class="form-control" />
-    <div class="dropdown">
-        <label for="dropdownUser">Assigned User</label>
-        <select typeof="button" data-toggle="dropdown">{{controller.}}</select>
-        <div>
-
-
-            <input type="text" ng-model="description" placeholder="description" />
-        </div>
+    <form ng-submit="controller.addBug(title, assignedUser, description, severity)">
+        <input ng-model="title" placeholder="Title" class="form-control" />
         <div class="dropdown">
-            <label for="dropdown"> Priority Level</label>
-            <select class="dropdown-toggle" type="button" data-toggle="dropdown" ng-model="priority" ng-options="priority.name for priority in controller.priorityLevels">
-               
-            </select>
+            <label for="dropdownUser">Assigned User</label>
+            <select typeof="button" data-toggle="dropdown" ng-model="assignedUser" ng-options="user.userName as user.userName for user in controller.users"></select>{{assignedUser}}
+            <div>
+
+
+                <input type="text" ng-model="description" placeholder="Description" />
+            </div>
+            <div class="dropdown">
+                <label for="dropdown"> Priority Level</label>
+                <select class="dropdown-toggle" type="button" data-toggle="dropdown" ng-model="severity" ng-options="priority.value as priority.name for priority in controller.priorityLevels track by priority.value"></select>{{severity}}
+
+                <input type="submit" class="btn" value="Submit" />
+            </div>
         </div>
-    </div>
+    </form>
 </div>

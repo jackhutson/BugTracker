@@ -19,8 +19,8 @@ namespace BugFixer.Presentation.Controllers
 
         [HttpGet]
         [Route("api/users")]
-        public IList<ApplicationUserDTO> GetUser() {
-            return _userService.GetUser();
+        public IList<ApplicationUserDTO> GetUsers() {
+            return _userService.GetUsers();
         }
     }
 }

@@ -13,14 +13,11 @@ namespace BugFixer.Services {
             _userRepo = userRepo;
         }
 
-
-        public IList<ApplicationUserDTO> GetUser() {
-            return (from u in _userRepo.FindUser()
-                    select new ApplicationUserDTO() {
+        public IList<ApplicationUserDTO> GetUsers() {
+            return (from u in _userRepo.FindUsers()
+                    select new ApplicationUserDTO() { 
                         UserName = u.UserName
-
                     }).ToList();
-
         }
     }
 }

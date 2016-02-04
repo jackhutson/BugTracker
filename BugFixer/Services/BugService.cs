@@ -23,8 +23,6 @@ namespace BugFixer.Services {
             var bug = new Bug() {
                 Title = dto.Title,
                 Description = dto.Description,
-                Resolved = dto.Resolved,
-                State = dto.State,
                 Severity = dto.Severity,
                 AssignedUser = _userRepo.FindByUsername(dto.AssignedUser).FirstOrDefault()
             };
@@ -35,15 +33,15 @@ namespace BugFixer.Services {
 
         public IList<BugDTO> GetBugs() {
             return (from b in _bugRepo.ListBugs()
-                    select new BugDTO(
+                    select new BugDTO() { 
                         Id = b.Id,
                         Title = b.Title,
                         Description = b.Description,
                         Resolved = b.Resolved,
                         State = b.State,
                         Severity = b.Severity,
-                        AssignedUser = b.AssignedUser
-                        )).ToList();
+                        AssignedUser = b.AssignedUser.UserName
+                        }).ToList();
         }
     }
 }

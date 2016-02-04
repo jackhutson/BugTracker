@@ -14,14 +14,14 @@ namespace BugFixer.Infrastructure {
             _db = (ApplicationDbContext)db;
         }
 
-        public IQueryable<ApplicationUser> FindUser() {
+        public IQueryable<ApplicationUser> FindUsers() {
             return from u in _db.Users
                    select u;
         }
 
         public IQueryable<ApplicationUser> FindByUsername(string username) {
             return from u in _db.Users
-                   where u.UserName == username
+                   where u.UserName == username 
                    select u;
         }
     }

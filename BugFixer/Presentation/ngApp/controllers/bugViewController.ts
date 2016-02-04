@@ -3,7 +3,8 @@
     export class BugViewController {
 
         public bugs;
-        public priority;
+        public severity;
+        public users;
         public priorityLevels = [
             {
                 name: "Critical",
@@ -23,14 +24,20 @@
             }
         ];
 
-        constructor(private $http: ng.IHttpService, private $routeParams) { }
+        constructor(private $http: ng.IHttpService, private $routeParams) {
+            $http.get('/api/users')
+                .then((response) => {
+                this.users = response.data;
+            });
 
-        public addBug(title, assignedUser, description, priorityLevel) {
+        }
+
+        public addBug(title, assignedUser, description, severity) {
             this.$http.post("/api/bug", {
                 title: title,
                 assignedUser: assignedUser,
                 description: description,
-                priorityLevel: priorityLevel
+                severity: severity
             })
         }
     }
