@@ -1,4 +1,5 @@
-﻿using BugFixer.Infrastructure;
+﻿using BugFixer.Domain;
+using BugFixer.Infrastructure;
 using BugFixer.Services.Models;
 using Microsoft.AspNet.Identity;
 using System;
@@ -17,31 +18,30 @@ namespace BugFixer.Services {
             _userRepo = userRepo;
         }
 
-        public IList<BugDTO> AddBug(BugDTO dto, string username) {
+        public void AddBug(BugDTO dto, string username) {
 
             var user = _userRepo.FindByName(username);
 
             var bug = new Bug() {
                 Title = dto.Title,
-                User = user,
-                LinkedBugs = (from l in dto.LinkedBugs
-                             select l).ToList(),
                 Description = dto.Description,
+                Resolved = dto.Resolved,
+                State = dto.State,
                 Severity = dto.Severity,
-                State = dto.State
+                AssignedUser = user,
+                LinkedBugs = (from l in dto.LinkedBugs
+                              select new Bug() {
+                                  Title = l.Title,
+                                  Description = l.Description,
+                                  Resolved = l.Resolved,
+                                  State = l.State,
+                                  Severity = l.Severity,
+                                  AssignedUser = user
+                              }).ToList(),
             };
 
             _bugRepo.Add(bug);
             _bugRepo.SaveChanges();
-
-            return new BugDTO() {
-                Title = bug.Title,
-                User = bug.User,
-                LinkedBugs = bug.LinkedBugs,
-                Description = bug.Description,
-                Severity = bug.Severity,
-                State = bug.State
-            };
         }
     }
 }
