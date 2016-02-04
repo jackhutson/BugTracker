@@ -35,6 +35,6 @@
                     templateUrl: 'Presentation/ngApp/views/bugView.html',
                     controller: BugFixer.Controllers.BugViewController,
                     controllerAs: 'controller'
-                });;
+                });
         });
 }
