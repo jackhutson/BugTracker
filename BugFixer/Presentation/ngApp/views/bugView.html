@@ -1,0 +1,19 @@
+﻿<div>
+    <h1>Bug Tracker</h1>
+    <input ng-model="Title" placeholder="Title" class="form-control" />
+    <div class="dropdown">
+        <label for="dropdownUser">Assigned User</label>
+        <select typeof="button" data-toggle="dropdown">{{controller.}}</select>
+        <div>
+
+
+            <input type="text" ng-model="description" placeholder="description" />
+        </div>
+        <div class="dropdown">
+            <label for="dropdown"> Priority Level</label>
+            <select class="dropdown-toggle" type="button" data-toggle="dropdown" ng-model="priority" ng-options="priority.name for priority in controller.priorityLevels">
+               
+            </select>
+        </div>
+    </div>
+</div>
