@@ -3,17 +3,18 @@
     <input ng-model="Title" placeholder="Title" class="form-control" />
     <div class="dropdown">
         <label for="dropdownUser">Assigned User</label>
-        <select typeof="button" data-toggle="dropdown">{{controller.}}</select>
+        <select typeof="button" data-toggle="dropdown" ng-model="assignedUser" ng-options="user.name for user for users in controller.users    "></select>
         <div>
 
 
-            <input type="text" ng-model="description" placeholder="description" />
+            <input type="text" ng-model="description" placeholder="Description" />
         </div>
         <div class="dropdown">
             <label for="dropdown"> Priority Level</label>
-            <select class="dropdown-toggle" type="button" data-toggle="dropdown" ng-model="priority" ng-options="priority.name for priority in controller.priorityLevels">
+            <select class="dropdown-toggle" type="button" data-toggle="dropdown" ng-model="priority" ng-options="priority.value as priority.name for priority in controller.priorityLevels track by priority.value">
                
             </select>
+            {{  priority}}
         </div>
     </div>
 </div>
