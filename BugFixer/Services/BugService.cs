@@ -11,16 +11,12 @@ namespace BugFixer.Services {
     public class BugService {
 
         private BugRepository _bugRepo;
-        private ApplicationUserManager _userRepo;
 
-        public BugService(BugRepository bugRepo, ApplicationUserManager userRepo) {
+        public BugService(BugRepository bugRepo) {
             _bugRepo = bugRepo;
-            _userRepo = userRepo;
         }
 
-        public void AddBug(BugDTO dto, string username) {
-
-            var user = _userRepo.FindByName(username);
+        public void AddBug(BugDTO dto) {
 
             var bug = new Bug() {
                 Title = dto.Title,
@@ -28,16 +24,7 @@ namespace BugFixer.Services {
                 Resolved = dto.Resolved,
                 State = dto.State,
                 Severity = dto.Severity,
-                AssignedUser = user,
-                LinkedBugs = (from l in dto.LinkedBugs
-                              select new Bug() {
-                                  Title = l.Title,
-                                  Description = l.Description,
-                                  Resolved = l.Resolved,
-                                  State = l.State,
-                                  Severity = l.Severity,
-                                  AssignedUser = user
-                              }).ToList(),
+                //AssignedUser = from u in 
             };
 
             _bugRepo.Add(bug);

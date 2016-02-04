@@ -13,7 +13,7 @@ namespace BugFixer.Services.Models {
         public bool Resolved { get; set; }
         public Bug.Status State { get; set; }
         public Bug.Priority Severity { get; set; }
-        public ApplicationUserDTO AssignedUser { get; set; }
+        public string AssignedUser { get; set; }
         public IList<BugDTO> LinkedBugs { get; set; }
     }
 }
