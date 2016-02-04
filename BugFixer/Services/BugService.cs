@@ -32,5 +32,10 @@ namespace BugFixer.Services {
             _bugRepo.Add(bug);
             _bugRepo.SaveChanges();
         }
+
+
+
+
+        public  IList<BugDTO> 
     }
 }
