@@ -16,9 +16,9 @@ namespace BugFixer.Presentation.Controllers
         public BugController(BugService bugService) {
             _bugService = bugService;
         }
+        [Route("api/bug")]
 
         [HttpPost]
-        [Route("api/bug")]
         public void AddBug(BugDTO newBug) {
             _bugService.AddBug(newBug);
         }
