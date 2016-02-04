@@ -27,6 +27,14 @@
 
             $httpProvider.interceptors.push('authInterceptor');
 
-            $routeProvider.when('/', { template: 'Hello World!' });
+            $routeProvider
+                .when('/', {
+                    template: 'Hello World!'
+                })
+                .when('/newBug', {
+                    templateUrl: 'Presentation/ngApp/view/bugView.html',
+                    controller: BugFixer.Controllers.BugViewController,
+                    controllerAs: 'controller'
+                });;
         });
 }
