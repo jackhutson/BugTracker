@@ -207,6 +207,7 @@
     <Compile Include="Infrastructure\GenericRepository.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Presentation\Controllers\AccountController.cs" />
+    <Compile Include="Presentation\Controllers\BugController.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
