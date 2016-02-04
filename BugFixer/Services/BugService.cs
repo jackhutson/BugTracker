@@ -11,9 +11,11 @@ namespace BugFixer.Services {
     public class BugService {
 
         private BugRepository _bugRepo;
+        private UserRepository _userRepo;
 
-        public BugService(BugRepository bugRepo) {
+        public BugService(BugRepository bugRepo, UserRepository userRepo) {
             _bugRepo = bugRepo;
+            _userRepo = userRepo;
         }
 
         public void AddBug(BugDTO dto) {
@@ -24,7 +26,7 @@ namespace BugFixer.Services {
                 Resolved = dto.Resolved,
                 State = dto.State,
                 Severity = dto.Severity,
-                //AssignedUser = from u in 
+                AssignedUser = _userRepo.FindByUsername(dto.AssignedUser).FirstOrDefault()
             };
 
             _bugRepo.Add(bug);
