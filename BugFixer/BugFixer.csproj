@@ -294,6 +294,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Presentation\ngApp\app.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\authController.ts" />
+    <TypeScriptCompile Include="Presentation\ngApp\controllers\bugListingController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\bugViewController.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
