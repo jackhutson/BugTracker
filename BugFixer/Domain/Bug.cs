@@ -12,6 +12,7 @@ namespace BugFixer.Domain {
             Resolved,
             Deleted
         }
+
         public enum Priority {
             Critical,
             High,
