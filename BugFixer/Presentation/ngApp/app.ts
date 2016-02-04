@@ -32,8 +32,13 @@
                     template: 'Hello World!'
                 })
                 .when('/newBug', {
-                    templateUrl: 'Presentation/ngApp/views/bugView.html',
+                    templateUrl: '/Presentation/ngApp/views/bugView.html',
                     controller: BugFixer.Controllers.BugViewController,
+                    controllerAs: 'controller'
+                })
+                .when('/buglist', {
+                    templateUrl: '/Presentation/ngApp/views/listBugsView.html',
+                    controller: BugFixer.Controllers.BugListingController,
                     controllerAs: 'controller'
                 });
         });
