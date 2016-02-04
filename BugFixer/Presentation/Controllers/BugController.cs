@@ -1,22 +1,26 @@
-﻿using System;
+﻿using BugFixer.Services;
+using BugFixer.Services.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 
-namespace BugFixer.Presentation.Controllers {
-    public class BugController : ApiController {
+namespace BugFixer.Presentation.Controllers
+{
+    public class BugController : ApiController
+    {
         private BugService _bugService;
 
-        public BugController(BugService _bugService) {
+        public BugController(BugService bugService) {
             _bugService = bugService;
         }
 
         [HttpPost]
-        [Route("api/")]
-        public void AddBug(int id) {
-            return _bugService.AddBug(id);
+        [Route("api/bug")]
+        public void AddBug(BugDTO newBug) {
+            _bugService.AddBug(newBug);
         }
     }
-
 }
