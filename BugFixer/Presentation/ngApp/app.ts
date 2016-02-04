@@ -32,7 +32,7 @@
                     template: 'Hello World!'
                 })
                 .when('/newBug', {
-                    templateUrl: 'Presentation/ngApp/view/bugView.html',
+                    templateUrl: 'Presentation/ngApp/views/bugView.html',
                     controller: BugFixer.Controllers.BugViewController,
                     controllerAs: 'controller'
                 });;
