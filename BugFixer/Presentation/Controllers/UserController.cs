@@ -1,4 +1,5 @@
 ﻿using BugFixer.Services;
+using BugFixer.Services.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,12 @@ namespace BugFixer.Presentation.Controllers
 
         public UserController(UserService userService) {
             _userService = userService;
+        }
+
+        [HttpGet]
+        [Route("api/users")]
+        public IList<ApplicationUserDTO> GetUser() {
+            return _userService.GetUser();
         }
     }
 }

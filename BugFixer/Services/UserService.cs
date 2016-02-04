@@ -1,4 +1,5 @@
 ﻿using BugFixer.Infrastructure;
+using BugFixer.Services.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,12 @@ namespace BugFixer.Services {
         }
 
 
-        public IList<UserRepository> GetUserList() {
+        public IList<ApplicationUserDTO> GetUser() {
+            return (from u in _userRepo.FindUser()
+                    select new ApplicationUserDTO() {
+                        UserName = u.UserName
+
+                    }).ToList();
 
         }
     }

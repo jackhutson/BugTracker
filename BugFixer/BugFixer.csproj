@@ -226,6 +226,7 @@
     <Compile Include="Domain\Identity\ApplicationOAuthProvider.cs" />
     <Compile Include="Presentation\Models\Identity\ChallengeResult.cs" />
     <Compile Include="Services\BugService.cs" />
+    <Compile Include="Services\Models\ApplicationUserDTO.cs" />
     <Compile Include="Services\Models\BugDTO.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Startup.cs" />
