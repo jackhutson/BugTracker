@@ -34,7 +34,16 @@ namespace BugFixer.Services {
         }
 
         public IList<BugDTO> GetBugs() {
-            return _bugRepo.ListBugs();
+            return (from b in _bugRepo.ListBugs()
+                    select new BugDTO(
+                        Id = b.Id,
+                        Title = b.Title,
+                        Description = b.Description,
+                        Resolved = b.Resolved,
+                        State = b.State,
+                        Severity = b.Severity,
+                        AssignedUser = b.AssignedUser
+                        )).ToList();
         }
     }
 }
