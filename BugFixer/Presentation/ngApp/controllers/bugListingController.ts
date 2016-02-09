@@ -9,6 +9,14 @@
                 .then((response) => {
                     this.bugs = response.data;
                 });
+
+        }
+        public buggyFix(id) {
+            this.$http.get(`/api/bug/resolve/${id}`)
+                .then((response) => {
+                    this.bugs = response.data;
+                });
+
         }
     }
 }
