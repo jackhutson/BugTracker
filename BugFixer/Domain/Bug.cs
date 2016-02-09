@@ -26,7 +26,6 @@ namespace BugFixer.Domain {
         public bool Resolved { get; set; }
         public Status State { get; set; }
         public Priority Severity { get; set; }
-        
         public ApplicationUser AssignedUser { get; set; }
         public IList<Bug> LinkedBugs { get; set; }
 

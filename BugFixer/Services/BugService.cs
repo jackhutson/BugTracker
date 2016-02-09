@@ -43,5 +43,18 @@ namespace BugFixer.Services {
                         AssignedUser = b.AssignedUser.UserName
                         }).ToList();
         }
+
+        public void ResolveBug(int id) {
+
+            var bug = (from b in _bugRepo.Get(id)
+                      where b.Id == id
+                      select b).FirstOrDefault();
+
+            if (bug != null) {
+                bug.Resolved = true;
+
+            }
+            _bugRepo.SaveChanges();
+            
+        }
     }
-}
